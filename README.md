@@ -17,6 +17,8 @@ Create a web API using a Node.js framework that will interact with a private blo
 * **URL**
 
     /block/:index
+    
+    Example: /block/8
 
 * **Method:**
 
@@ -28,5 +30,20 @@ Create a web API using a Node.js framework that will interact with a private blo
 
     ```index=[integer]```
 
-* **Succes Response:**
+* **Success Response:**
+ 
+        ```
+        {
+        "hash": "a77ad1485e820d32a7d1a559ddf4d7c5182f64842267eb7a135417619408d569",
+        "height": 10,
+        "body": "Test Data 9",
+        "time": "1545286561",
+        "previousBlockHash": "90bd737fa37b254adbae4d4b7cc155cc1cd616323c904afe87398173e0bdedc5"
+        }
+        ```
+* **Error Response:**
+
+        ```
+        Block does not exist!
+        ```
 
