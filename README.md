@@ -12,7 +12,7 @@ Create a web API using a Node.js framework that will interact with a private blo
 
 ## Endpoints
 
-### **Get Block By Index**
+### Get A Block By Index
 
 * **URL**
 
@@ -26,7 +26,7 @@ Create a web API using a Node.js framework that will interact with a private blo
 
 * **URL Params**
 
-    **Required:**
+    Required:
 
     ```index=[integer]```
 
@@ -43,7 +43,42 @@ Create a web API using a Node.js framework that will interact with a private blo
         
 * **Error Response:**
 
-        
         Block does not exist!
         
+### Create A New Block
 
+* **URL**
+
+    /block
+
+* **Method:**
+
+    ```POST```
+
+* **Data Params**
+
+    Required:
+
+    ```body = [JSON Object]```
+    
+    Example: 
+    ```
+    {
+        "body": "Test Data"
+    }
+    ```
+
+* **Success Response:**
+ 
+        New block created!
+        
+* **Error Response:**
+    
+    An error message is received when no data is posted.
+
+        Error: You must add data to create a new block.
+
+## Built With
+
+* [Node.js](https://nodejs.org/en/)
+* [Express.js](https://expressjs.com/)

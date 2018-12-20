@@ -41,12 +41,12 @@ class BlockController {
     postNewBlock() {
         this.app.post("/block", (req, res) => {
             // Add your code here
-            console.log(req.body.body);
             if (req.body.body == undefined){
                 res.send("Error: You must add data to create a new block.")
             } else {
                 let block = new BlockClass.Block(req.body.body);
                 db.addBlock(block);
+                res.send("New block created!");
             } 
         });
     }
