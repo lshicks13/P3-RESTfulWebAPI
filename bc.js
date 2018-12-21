@@ -14,7 +14,7 @@ class BlockController {
      */
     constructor(app) {
         this.app = app;
-        this.initializeMockData();
+        //this.initializeMockData();
         this.getBlockByIndex();
         this.postNewBlock();
     }
@@ -28,9 +28,9 @@ class BlockController {
             let i = req.params.index
             let block = await db.getBlock(i);
             if(block == undefined){
-                res.send("Block does not exist!");
+                res.status(500).send("Error: Block does not exist!");
             } else {
-                res.send(block);
+                res.status(200).send(JSON.parse(block));
             }
         });
     }
@@ -39,14 +39,17 @@ class BlockController {
      * Implement a POST Endpoint to add a new Block, url: "/api/block"
      */
     postNewBlock() {
-        this.app.post("/block", (req, res) => {
+        this.app.post("/block", async(req, res) => {
             // Add your code here
-            if (req.body.body == undefined){
-                res.send("Error: You must add data to create a new block.")
+            if ((req.body.body == undefined) || (req.body.body === "")){
+                res.status(500).send("Error: You must add data to create a new block.")
             } else {
                 let block = new BlockClass.Block(req.body.body);
-                db.addBlock(block);
-                res.send("New block created!");
+                await db.addBlock(block);
+                let height = await db.getBlockHeight();
+                height = height + 1;
+                let newBlock = await db.getBlock(height);
+                res.status(200).send(JSON.parse(newBlock));
             } 
         });
     }

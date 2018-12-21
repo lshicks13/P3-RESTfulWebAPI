@@ -32,6 +32,11 @@ Create a web API using a Node.js framework that will interact with a private blo
 
 * **Success Response:**
  
+    * * Status Code:
+
+        200
+
+    * * Content:
     
         {
         "hash": "a77ad1485e820d32a7d1a559ddf4d7c5182f64842267eb7a135417619408d569",
@@ -43,7 +48,13 @@ Create a web API using a Node.js framework that will interact with a private blo
         
 * **Error Response:**
 
-        Block does not exist!
+    * * Status Code:
+
+        500
+
+    * * Content:
+
+        Error: Block does not exist!
         
 ### Create A New Block
 
@@ -69,12 +80,30 @@ Create a web API using a Node.js framework that will interact with a private blo
     ```
 
 * **Success Response:**
- 
-        New block created!
+    
+    * Status Code:
+
+        200
+
+    * Content:
+
+    {
+    "hash": "a20e4291de0e4e34921b17f402843cb4b106f89a2594bd17f6b0f9fd0fc32b73",
+    "height": 11,
+    "body": "Test Data",
+    "time": "1545358567",
+    "previousBlockHash": "2b9127644d96822c63351f4c68aae6f21e89bc557e60066200853c10db1ba167"
+    }
         
 * **Error Response:**
     
     An error message is received when no data is posted.
+
+    * Status Code:
+
+        500
+
+    * Content:
 
         Error: You must add data to create a new block.
 
