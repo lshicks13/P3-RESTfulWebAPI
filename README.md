@@ -32,12 +32,13 @@ Create a web API using a Node.js framework that will interact with a private blo
 
 * **Success Response:**
  
-    * * Status Code:
+    * Status Code:
 
-        200
+        ```200```
 
-    * * Content:
+    * Content:
     
+        ```
         {
         "hash": "a77ad1485e820d32a7d1a559ddf4d7c5182f64842267eb7a135417619408d569",
         "height": 10,
@@ -45,16 +46,17 @@ Create a web API using a Node.js framework that will interact with a private blo
         "time": "1545286561",
         "previousBlockHash": "90bd737fa37b254adbae4d4b7cc155cc1cd616323c904afe87398173e0bdedc5"
         }
+        ```
         
 * **Error Response:**
 
-    * * Status Code:
+    * Status Code:
 
-        500
+        ```500```
 
-    * * Content:
+    * Content:
 
-        Error: Block does not exist!
+        ```Error: Block does not exist!```
         
 ### Create A New Block
 
@@ -83,29 +85,31 @@ Create a web API using a Node.js framework that will interact with a private blo
     
     * Status Code:
 
-        200
+        ```200```
 
     * Content:
 
-    {
-    "hash": "a20e4291de0e4e34921b17f402843cb4b106f89a2594bd17f6b0f9fd0fc32b73",
-    "height": 11,
-    "body": "Test Data",
-    "time": "1545358567",
-    "previousBlockHash": "2b9127644d96822c63351f4c68aae6f21e89bc557e60066200853c10db1ba167"
-    }
-        
+        ```
+        {
+        "hash": "a20e4291de0e4e34921b17f402843cb4b106f89a2594bd17f6b0f9fd0fc32b73",
+        "height": 11,
+        "body": "Test Data",
+        "time": "1545358567",
+        "previousBlockHash": "2b9127644d96822c63351f4c68aae6f21e89bc557e60066200853c10db1ba167"
+        }
+        ```
+
 * **Error Response:**
     
     An error message is received when no data is posted.
 
     * Status Code:
 
-        500
+        ```500```
 
     * Content:
 
-        Error: You must add data to create a new block.
+        ```Error: You must add data to create a new block.```
 
 ## Built With
 
